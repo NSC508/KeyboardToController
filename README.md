@@ -14,6 +14,15 @@ Dependencies
 * [vJoy](https://sourceforge.net/projects/vjoystick/)
 * [Xbox 360 Controller Emulator](https://www.x360ce.com/)
 
+Setup vJoy
+==========
+
+1. Open the Configure vJoy application
+2. Select Device 1
+3. Change the settings to look like so:
+
+![vJoyConfiguration](/images/vJoyConfiguration.PNG)
+
 Setup Controller Emulator
 =========================
 
@@ -22,5 +31,5 @@ After setting up the Xbox 360 Controller Emulator, do the following:
 2. Click on the "Add..." button 
 3. Select the vJoy input device, hit "Add selected device" 
 4. Add the following binds:
-* Set "Stick Axis X" to "Axis 1"
-* Set "Stick Axis Y" to "Axis 2"
+
+![Xbox 360 CE Configuration](/images/Xbox360CEConfiguration.PNG)

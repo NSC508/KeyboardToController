@@ -3,13 +3,6 @@ from constants import *
 
 left_stick_pressed = set()
 
-def on_press(key):
-    '''Defines gamepad behavior on key press'''
-    print(f'You pressed {key}')
-    if key in LEFT_STICK_BUTTONS:
-        left_stick_pressed.add(key)
-    left_stick_value_calculator()
-
 def left_stick_value_calculator():
     '''From all the keys pressed, calculates the correct mappings of the left stick'''
     sum_left_stick_directions = [0, 0, 0, 0]
@@ -28,11 +21,22 @@ def left_stick_value_calculator():
         sum_left_stick_directions[2],
         sum_left_stick_directions[3])
 
+def on_press(key):
+    '''Defines gamepad behavior on key press'''
+    print(f'You pressed {key}')
+    if key in LEFT_STICK_BUTTONS:
+        left_stick_pressed.add(key)
+    left_stick_value_calculator()
+    if key in DPAD:
+        JOYSTICK.set_button(DPAD[key], 1)
+
 def on_release(key):
     '''Defines gamepad behavior on key release'''
     if key in LEFT_STICK_BUTTONS:
         left_stick_pressed.remove(key)
     left_stick_value_calculator()
+    if key in DPAD:
+        JOYSTICK.set_button(DPAD[key], 0)
     if key == QUIT_KEY:
         # Stop listener
         return False
