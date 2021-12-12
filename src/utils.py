@@ -1,6 +1,7 @@
 from pynput import keyboard, mouse
-from constants.py import QUIT_KEY
-from controller import controller
+import pyvjoy
+from constants import QUIT_KEY, MAX_VJOY, JOYSTICK
+
 
 def on_press(key):
     try:
@@ -16,7 +17,6 @@ def on_release(key):
     if key == QUIT_KEY:
         # Stop listener
         return False
-    pass
 
 def on_move(x, y):
     print('Pointer moved to {0}'.format(
@@ -34,3 +34,11 @@ def on_scroll(x, y, dx, dy):
     print('Scrolled {0} at {1}'.format(
         'down' if dy < 0 else 'up',
         (x, y)))
+
+def play_function(x, y, z, x_rot):
+    '''Takes in t'''
+    JOYSTICK.data.wAxisX = int(x * MAX_VJOY)
+    JOYSTICK.data.wAxisY = int(y * MAX_VJOY)
+    JOYSTICK.data.wAxisZ = int(z * MAX_VJOY)
+    JOYSTICK.data.wAxisXRot = int(x_rot * MAX_VJOY)
+    JOYSTICK.update()
