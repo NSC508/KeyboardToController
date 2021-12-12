@@ -1,3 +1,4 @@
+'''All constants used throughout the codebase'''
 from pynput import keyboard
 import pyvjoy
 
