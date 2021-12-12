@@ -1,3 +1,7 @@
+![Python](https://img.shields.io/badge/python-3.7-blue?style=flat-square)
+![vJoy](https://img.shields.io/badge/vJoy-v2.1.9.1-blue?style=flat-square)
+![Xbox360CE](https://img.shields.io/badge/Xbox%20360%20Controller%20Emulator-v4.17.15.0-blue?style=flat-square)
+
 Idealogy
 ========
 
