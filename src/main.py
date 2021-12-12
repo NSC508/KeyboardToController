@@ -7,7 +7,7 @@ key_listener = keyboard.Listener(
         on_press=on_press,
         on_release=on_release)
 key_listener.start()
-   
+
 with mouse.Listener(on_move=on_move,
         on_click=on_click,
         on_scroll=on_scroll) as listener:
