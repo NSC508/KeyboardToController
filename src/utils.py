@@ -1,23 +1,38 @@
 '''All miscellaneouss methods that don't require their own files'''
 from constants import *
 
+left_stick_pressed = set()
 
 def on_press(key):
     '''Defines gamepad behavior on key press'''
     print(f'You pressed {key}')
-    if key == FORWARD_KEY:
-        play_function(1/2, 1, 1/2, 1/2)
-    if key == DOWN_KEY:
-        play_function(1/2, 0, 1/2, 1/2)
-    if key == LEFT_KEY:
-        play_function(0, 1/2, 1/2, 1/2)
-    if key == RIGHT_KEY:
-        play_function(1, 1/2, 1/2, 1/2)
+    if key in LEFT_STICK_BUTTONS:
+        left_stick_pressed.add(key)
+    left_stick_value_calculator()
 
+def left_stick_value_calculator():
+    '''From all the keys pressed, calculates the correct mappings of the left stick'''
+    sum_left_stick_directions = [0, 0, 0, 0]
+    for key_pressed in left_stick_pressed:
+        sum_left_stick_directions = [x + y for x, y in zip(
+            sum_left_stick_directions, LEFT_STICK_BUTTONS[key_pressed]
+            )]
+    for index, value in enumerate(sum_left_stick_directions):
+        if value == 0:
+            sum_left_stick_directions[index] = 1/2
+        elif value == -1:
+            sum_left_stick_directions[index] = 0
+    play_function(
+        sum_left_stick_directions[0],
+        sum_left_stick_directions[1],
+        sum_left_stick_directions[2],
+        sum_left_stick_directions[3])
 
 def on_release(key):
     '''Defines gamepad behavior on key release'''
-    play_function(1/2, 1/2, 1/2, 1/2)
+    if key in LEFT_STICK_BUTTONS:
+        left_stick_pressed.remove(key)
+    left_stick_value_calculator()
     if key == QUIT_KEY:
         # Stop listener
         return False
