@@ -1,5 +1,5 @@
 '''All constants used throughout the codebase'''
-from pynput import keyboard
+from pynput import keyboard, mouse
 import pyvjoy
 
 QUIT_KEY = keyboard.Key.esc
@@ -15,3 +15,8 @@ LEFT_STICK_BUTTONS = {
     DOWN_KEY: [0, -1, 0, 0],
     LEFT_KEY: [-1, 0, 0, 0],
     RIGHT_KEY: [1, 0, 0, 0]}
+LEFT_TRIGGER = mouse.Button.right
+RIGHT_TRIGGER = mouse.Button.left
+TRIGGERS = {
+    LEFT_TRIGGER: 1,
+    RIGHT_TRIGGER: 2}

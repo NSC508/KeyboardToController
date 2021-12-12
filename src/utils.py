@@ -42,17 +42,17 @@ def on_move(x_val, y_val):
     print('Pointer moved to {0}'.format(
         (x_val, y_val)))
 
-def on_click(x_val, y_val, button, pressed):
+def on_click(*args):
     '''Defines gamepad behavior on mouse click'''
-    print('{0} at {1}'.format(
-        'Pressed' if pressed else 'Released',
-        (x_val, y_val)))
+    if args[-2] in TRIGGERS:
+        trigger = TRIGGERS[args[-2]]
+        if args[-1]:
+            JOYSTICK.set_button(trigger, 1)
+        elif not args[-1]:
+            JOYSTICK.set_button(trigger, 0)
 
-def on_scroll(x_val, y_val, change_in_x, change_in_y):
+def on_scroll(*args):
     '''Defines gampad behavior when mouse is scrolled'''
-    print('Scrolled {0} at {1}'.format(
-        'down' if change_in_y < 0 else 'up',
-        (x_val, y_val)))
 
 def play_function(x_val, y_val, z_val, x_rot):
     '''Sets gamepad to the given values'''
