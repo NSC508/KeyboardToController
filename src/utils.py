@@ -27,16 +27,16 @@ def on_press(key):
     if key in LEFT_STICK_BUTTONS:
         left_stick_pressed.add(key)
     left_stick_value_calculator()
-    if key in DPAD:
-        JOYSTICK.set_button(DPAD[key], 1)
+    if key in KEY_BINDINGS:
+        JOYSTICK.set_button(KEY_BINDINGS[key], 1)
 
 def on_release(key):
     '''Defines gamepad behavior on key release'''
     if key in LEFT_STICK_BUTTONS:
         left_stick_pressed.remove(key)
     left_stick_value_calculator()
-    if key in DPAD:
-        JOYSTICK.set_button(DPAD[key], 0)
+    if key in KEY_BINDINGS:
+        JOYSTICK.set_button(KEY_BINDINGS[key], 0)
     if key == QUIT_KEY:
         # Stop listener
         return False

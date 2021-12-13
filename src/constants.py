@@ -26,9 +26,31 @@ DPAD_UP = keyboard.Key.up
 DPAD_DOWN = keyboard.Key.down
 DPAD_RIGHT = keyboard.Key.right
 DPAD_LEFT = keyboard.Key.left
-DPAD = {
+A_BUTTON = keyboard.Key.space
+B_BUTTON = keyboard.Key.tab
+X_BUTTON = keyboard.KeyCode.from_char('r')
+Y_BUTTON = keyboard.KeyCode.from_char('q')
+LEFT_STICK_BUTTON = keyboard.Key.shift_l
+RIGHT_STICK_BUTTON = keyboard.Key.shift_r
+RIGHT_BUMPER = keyboard.KeyCode.from_char('c')
+LEFT_BUMPER = keyboard.KeyCode.from_char('z')
+START = keyboard.KeyCode.from_char('y')
+BACK = keyboard.KeyCode.from_char('t')
+GUIDE = keyboard.KeyCode.from_char('u')
+KEY_BINDINGS = {
     DPAD_UP: 3,
     DPAD_DOWN: 4,
     DPAD_RIGHT: 5,
-    DPAD_LEFT: 6
+    DPAD_LEFT: 6,
+    A_BUTTON: 7,
+    B_BUTTON: 8,
+    X_BUTTON: 9,
+    Y_BUTTON: 10,
+    LEFT_STICK_BUTTON: 11,
+    RIGHT_STICK_BUTTON: 12,
+    RIGHT_BUMPER: 13,
+    LEFT_BUMPER: 14,
+    START: 15,
+    BACK: 16,
+    GUIDE: 17
 }
